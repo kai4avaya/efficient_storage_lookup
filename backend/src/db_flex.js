@@ -5,10 +5,21 @@ const options = "performance";
 
 const index = new Index();
 
+// const index_doc = new Document({
+//     id: "id",
+//     index: ["title", "content", "url", "processedDate"]
+// });
+
 const index_doc = new Document({
     id: "id",
-    index: ["title", "content", "url", "processedDate"]
+    index: ["title", "content", "url", "processedDate"],
+    context: true,
+    depth: 3, // Increasing depth for better contextual awareness
+    optimize: true, // Enable optimization for better performance
+    resolution: 100, // Increase resolution for finer distinctions in relevance scoring
+    charset: 'latin:advanced' // Example of setting a charset for improved text processing
 });
+
 
 // create a way to add to each document
 
@@ -111,21 +122,23 @@ export function addDocumentsToFlexSearch_doc(documents) {
     console.log("i am index_doc!", index_doc);
 }
 
-
-// Searching in a document index
+// Function to search the top K documents in FlexSearch
 export function searchDocumentsFlex_doc(query, k = 5) {
-
-    console.log("i am query", query);
     const searchResults = index_doc.search({
         query: query,
         limit: k
     });
 
-    console.log("i am search results", searchResults)
-
-    const topKDocuments = searchResults.map(result => {
-        return conversations_doc.find(conv => conv.id === String(result.id));
+    // Flatten the result IDs and remove duplicates
+    const resultIds = new Set();
+    searchResults.forEach(item => {
+        item.result.forEach(id => resultIds.add(id));
     });
+
+    // Find and return the documents corresponding to the result IDs
+    const topKDocuments = Array.from(resultIds).map(id => {
+        return conversations_doc.find(conv => conv.id === id);
+    }).filter(doc => doc !== undefined);  // Filter out any undefined entries if no document matches an ID
 
     return topKDocuments;
 }
