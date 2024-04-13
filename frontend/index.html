@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Search</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #333; /* Dark background */
+            color: #fff; /* Light text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-container {
+            background: #222; /* Darker element background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+        input[type="text"], button {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #555; /* Subtle borders */
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #flexSearchButton {
+            background-color: #28a745; /* Green */
+        }
+        #flexIndexButton {
+            background-color: #dc3545; /* Red */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px; /* Set a max width for the container */
+        }
+        .result-item {
+            background: #444; /* Slightly lighter than container bg */
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h1>Document Search</h1>
+        <input type="text" placeholder="Enter document name or keyword..." id="searchInput">
+        <!-- <button id="searchButton">Search</button> -->
+        <button id="flexIndexButton">Flex Index Documents</button> <!-- New FlexSearch index button -->
+
+        <!-- <button id="indexButton">Index Documents</button> -->
+        <button id="flexSearchButton">Flex Search</button> <!-- New FlexSearch search button -->
+        <div class="results" id="results"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

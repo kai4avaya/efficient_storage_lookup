@@ -1,0 +1,21 @@
+{
+  "name": "simplelookup",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon backend/src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "flexsearch": "^0.7.43",
+    "lunr": "^2.3.9",
+    "nodemon": "^3.1.0"
+  }
+}
