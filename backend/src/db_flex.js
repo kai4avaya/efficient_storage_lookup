@@ -14,11 +14,20 @@ const index_doc = new Document({
     id: "id",
     index: ["title", "content", "url", "processedDate"],
     context: true,
+    tokenize: "forward", // Tokenize from start to end of words
     depth: 3, // Increasing depth for better contextual awareness
     optimize: true, // Enable optimization for better performance
     resolution: 100, // Increase resolution for finer distinctions in relevance scoring
+    threshold: 0, // Lower threshold to include more documents in results
     charset: 'latin:advanced' // Example of setting a charset for improved text processing
 });
+
+// const index = new FlexSearch.Index({
+//     encode: "extra", // Use a strong encoder
+//     tokenize: "forward", // Tokenize from start to end of words
+//     threshold: 0, // Lower threshold to include more documents in results
+//     resolution: 100 // Higher resolution for finer score distinctions
+// });
 
 
 // create a way to add to each document

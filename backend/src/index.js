@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import {addDocumentToLunr, searchTopKDocuments} from './db.js'
-import {addDocumentToFlexSearch, searchDocumentsFlex,searchDocumentsFlex_doc, addDocumentsToFlexSearch_doc} from './db_flex.js'
+import {addDocumentToFlexSearch, searchDocumentsFlex,searchDocumentsFlex_doc,  addDocumentsToFlexSearch_doc} from './db_flex.js'
 import cors from 'cors';
 const app = express();
 const PORT = 3002;
